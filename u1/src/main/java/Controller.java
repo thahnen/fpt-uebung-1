@@ -1,5 +1,3 @@
-package sample;
-
 import javax.swing.*;
 import javafx.event.ActionEvent;
 

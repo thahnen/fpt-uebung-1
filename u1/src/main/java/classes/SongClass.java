@@ -1,6 +1,11 @@
+package classes;
+
 import interfaces.Song;
 import javafx.beans.value.ObservableValue;
 
+/**
+ * Created by thahnen on 10.05.17.
+ */
 public class SongClass implements Song {
 
     private String path;
@@ -35,7 +40,7 @@ public class SongClass implements Song {
     }
 
     public String getPath() {
-        return  this.path;
+        return this.path;
     }
 
     public void setPath(String path) {
@@ -73,9 +78,7 @@ public class SongClass implements Song {
         return (ObservableValue<String>) new Object();
     }
 
-    @Override
     public String toString() {
         return (this.title + " von " + this.interpret + " aus dem Album " + this.album);
     }
-
 }
