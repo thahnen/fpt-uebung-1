@@ -1,12 +1,10 @@
 import interfaces.Song;
-
 import javafx.beans.value.ObservableValue;
 
 public class SongClass implements Song {
 
     private String path;
     private long id;
-
     private String album;
     private String interpret;
     private String title;
