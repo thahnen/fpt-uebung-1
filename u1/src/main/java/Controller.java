@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javafx.event.ActionEvent;
 
+/* ALT -> muss alles in die neue MP3Controller.java (sollte auch schon drin sein) */
+
 public class Controller {
 
     public void handleButtonAction(ActionEvent event) {
