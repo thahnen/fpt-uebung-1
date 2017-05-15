@@ -61,8 +61,8 @@ public class SongListC implements SongList {
     }
 
     @Override
-    public Iterable<Song> iterator() {      // ich raff die Scheisse hier erstmal nicht -.-
-        return this.elem;                   // guck mal bitte einer ob er/ sie das rafft
+    public Iterator<Song> iterator() {      // ich raff die Scheisse hier erstmal nicht -.-
+        return null;                   // guck mal bitte einer ob er/ sie das rafft
     }
 
 }
