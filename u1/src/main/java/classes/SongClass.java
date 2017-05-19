@@ -18,8 +18,13 @@ public class SongClass implements Song {
     public SongClass() {
     }
 
-    public SongClass(String path) {
+    public SongClass(String path, long id, String album, String interpret, String title) {
         this.path = path;
+        this.id = id;
+        this.album = album;
+        this.interpret = interpret;
+        this.title = title;
+        //bitte löschen
     }
 
 

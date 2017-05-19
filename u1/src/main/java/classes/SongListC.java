@@ -15,6 +15,7 @@ public class SongListC implements SongList {
     private ArrayList<Song> elem;
 
     public SongListC() {
+
         this.elem = new ArrayList<Song>();
     }
 
@@ -62,7 +63,7 @@ public class SongListC implements SongList {
 
     @Override
     public Iterator<Song> iterator() {      // ich raff die Scheisse hier erstmal nicht -.-
-        return null;                   // guck mal bitte einer ob er/ sie das rafft
+        return null;                   // guck mal bitte einer ob er/ sie das rafft  --ich glaube das ist für die liste der lieder die angezeigt werden sollen -Marco
     }
 
 }
