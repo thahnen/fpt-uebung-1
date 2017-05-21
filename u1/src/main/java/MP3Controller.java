@@ -5,13 +5,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
 import java.io.File;
 
 public class MP3Controller {
     @FXML private Label LblOrdN;
     @FXML private Label LblZeit;
-
     @FXML private TextField TxtTitel;
     @FXML private TextField TxtInterp;
     @FXML private TextField TxtAlbum;
@@ -33,11 +33,11 @@ public class MP3Controller {
     @FXML protected void onBtnOrdW(ActionEvent event) {
         // hier Quelltext einfügen
         System.out.println("click");
-        DirectoryChooser chooser = new DirectoryChooser();
-        chooser.setTitle("OrdnerWahl");
-        File defaultDirectory = new File("c:/");
-        chooser.setInitialDirectory(defaultDirectory);
-        //File selectedDirectory = chooser.showDialog(stage);
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Choose a file");
+        chooser.setInitialDirectory(new File("C:\\"));
+        File selectedFile = chooser.showOpenDialog(null);
+
 
 
     }
