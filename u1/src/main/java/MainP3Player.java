@@ -1,14 +1,8 @@
-import classes.SongClass;
-import classes.SongListC;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainP3Player extends Application {
