@@ -114,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MP3Model.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MP3Model.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MP3Model.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -126,19 +126,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fpt-uebung-1.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fpt-uebung-1.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fpt-uebung-1.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+          <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-              <folding>
-                <marker date="1495390198894" expanded="true" signature="1148:1198" ph="..." />
-                <marker date="1495390198894" expanded="true" signature="1438:1520" ph="..." />
-                <marker date="1495390198894" expanded="true" signature="1454:1504" ph="..." />
-              </folding>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -188,10 +184,10 @@
         <option value="$PROJECT_DIR$/src/main/java/interfaces/Song.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/SongListC.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/SongClass.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/fpt-uebung-1.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/MP3View.java" />
         <option value="$PROJECT_DIR$/src/main/java/MainP3Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/MP3Model.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fpt-uebung-1.fxml" />
       </list>
     </option>
   </component>
@@ -730,12 +726,12 @@
       <updated>1494950563746</updated>
       <workItem from="1494950566140" duration="85000" />
       <workItem from="1495373752127" duration="11262000" />
-      <workItem from="1495388770903" duration="1678000" />
+      <workItem from="1495388770903" duration="2130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13025000" />
+    <option name="totallyTimeSpent" value="13477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="716" extended-state="0" />
@@ -751,7 +747,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43564355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -909,11 +905,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="225" lean-forward="false" selection-start-line="49" selection-start-column="225" selection-end-line="49" selection-end-column="225" />
-          <folding>
-            <marker date="1495390198894" expanded="true" signature="1148:1198" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1438:1520" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1454:1504" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,11 +998,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1392">
           <caret line="48" column="230" lean-forward="true" selection-start-line="48" selection-start-column="230" selection-end-line="48" selection-end-column="230" />
-          <folding>
-            <marker date="1495390198894" expanded="true" signature="1148:1198" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1438:1520" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1454:1504" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1115,11 +1103,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="48" column="237" lean-forward="false" selection-start-line="48" selection-start-column="237" selection-end-line="48" selection-end-column="237" />
-          <folding>
-            <marker date="1495390198894" expanded="true" signature="1148:1198" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1438:1520" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1454:1504" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1302,21 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fpt-uebung-1.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding>
-            <marker date="1495390198894" expanded="true" signature="1148:1198" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1438:1520" ph="..." />
-            <marker date="1495390198894" expanded="true" signature="1454:1504" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MainP3Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1332,6 +1301,17 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fpt-uebung-1.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
