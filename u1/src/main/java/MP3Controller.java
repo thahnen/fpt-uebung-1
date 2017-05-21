@@ -38,6 +38,7 @@ public class MP3Controller {
         chooser.setTitle("Choose a file for MP3");
         chooser.setInitialDirectory(new File("C:\\"));
         File selectedFile = chooser.showDialog(null);
+        System.out.println(selectedFile.getName());
         File songs = selectedFile;
         File[] songListAr = songs.listFiles();
 
@@ -50,7 +51,7 @@ public class MP3Controller {
                 System.out.println(songliste.size());
             }
         }
-
+        // name der LiestView LstMP3
 
     }
 
