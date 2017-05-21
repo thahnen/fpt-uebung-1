@@ -10,7 +10,7 @@ import java.util.Iterator;
 /**
  * Created by thahnen on 10.05.17.
  */
-public class SongListC implements SongList {
+public class SongListC implements SongList {     //Ist aber nicht der gleiche Name Klasse und Interface ...
 
     private ArrayList<Song> elem;
 
