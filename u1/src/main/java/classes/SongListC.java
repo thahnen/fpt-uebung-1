@@ -2,7 +2,6 @@ package classes;
 
 import interfaces.Song;
 import interfaces.SongList;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,12 +9,11 @@ import java.util.Iterator;
 /**
  * Created by thahnen on 10.05.17.
  */
-public class SongListC implements SongList {
+public class SongListC implements interfaces.SongList {
 
     private ArrayList<Song> elem;
 
     public SongListC() {
-
         this.elem = new ArrayList<Song>();
     }
 
@@ -58,7 +56,7 @@ public class SongListC implements SongList {
 
     public Song findSongByPath(String name) throws RemoteException {
         // Platzhalter
-        return new SongClass();
+        return new classes.Song();
     }
 
     @Override

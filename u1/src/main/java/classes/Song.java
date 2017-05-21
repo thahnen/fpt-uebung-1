@@ -1,12 +1,11 @@
 package classes;
 
-import interfaces.Song;
 import javafx.beans.value.ObservableValue;
 
 /**
  * Created by thahnen on 10.05.17.
  */
-public class SongClass implements Song {
+public class Song implements interfaces.Song {
 
     private String path;
     private long id;
@@ -15,15 +14,15 @@ public class SongClass implements Song {
     private String title;
 
 
-    public SongClass(){
+    public Song(){
     }
 
-    public SongClass( String path, String title) {
+    public Song(String path, String title) {
         this.path = path;
         this.title = title;
     }
 
-    public SongClass(String path, long id, String album, String interpret, String title) {
+    public Song(String path, long id, String album, String interpret, String title) {
         this.path = path;
         this.id = id;
         this.album = album;

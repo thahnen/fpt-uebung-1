@@ -1,4 +1,4 @@
-import com.sun.corba.se.impl.naming.cosnaming.NamingContextDataStore;
+import classes.Song;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ListView;
@@ -8,6 +8,9 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MP3Controller {
     @FXML private Label LblOrdN;
@@ -31,13 +34,22 @@ public class MP3Controller {
     }
 
     @FXML protected void onBtnOrdW(ActionEvent event) {
-        // hier Quelltext einfügen
-        System.out.println("click");
-        FileChooser chooser = new FileChooser();
-        chooser.setTitle("Choose a file");
+        DirectoryChooser chooser = new DirectoryChooser();
+        chooser.setTitle("Choose a file for MP3");
         chooser.setInitialDirectory(new File("C:\\"));
-        File selectedFile = chooser.showOpenDialog(null);
+        File selectedFile = chooser.showDialog(null);
+        File songs = selectedFile;
+        File[] songListAr = songs.listFiles();
 
+        ArrayList<Song> songliste = new ArrayList<Song>();
+
+        for (int i=0; i<songListAr.length; i++) {
+            if (songListAr[i].getName().endsWith(".mp3")) {
+                Song s = new Song(songListAr[i].getPath(), songListAr[i].getName());
+                songliste.add(s);
+                System.out.println(songliste.size());
+            }
+        }
 
 
     }
