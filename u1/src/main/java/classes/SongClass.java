@@ -24,7 +24,7 @@ public class SongClass implements Song {
         this.album = album;
         this.interpret = interpret;
         this.title = title;
-        //bitte löschen
+
     }
 
 

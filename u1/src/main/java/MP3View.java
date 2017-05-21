@@ -8,4 +8,5 @@ import javafx.scene.layout.BorderPane;
  */
 
 public class MP3View extends BorderPane {
+
 }
