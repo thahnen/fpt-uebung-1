@@ -35,8 +35,8 @@
       <Button fx:id="BtnSnaechs" layoutX="487.0" layoutY="272.0" maxHeight="25.0" maxWidth="35.0" minHeight="25.0" minWidth="40.0" mnemonicParsing="false" onAction="#onBtnSnaechs" prefHeight="25.0" prefWidth="35.0" text="&gt;&gt;" />
       
       <ChoiceBox fx:id="Check" layoutX="15.0" layoutY="13.0" prefHeight="25.0" prefWidth="191.0" />
-      <Label layoutX="284.0" layoutY="354.0" text="1:10" />
-      <Button layoutX="402.0" layoutY="312.0" mnemonicParsing="false" text="Zur Playlist hinzufügen" />
-      <Button layoutX="63.0" layoutY="371.0" mnemonicParsing="false" text="Alle auswählen" />
+      <Label fx:id="LblZeit" layoutX="284.0" layoutY="354.0" text="1:10" />
+      <Button fx:id="BtnPlHin" layoutX="402.0" layoutY="312.0" mnemonicParsing="false" text="Zur Playlist hinzufügen" />
+      <Button fx:id="BtnAll" layoutX="63.0" layoutY="371.0" mnemonicParsing="false" text="Alle auswählen" />
    </children>
 </Pane>
