@@ -1,4 +1,5 @@
 import classes.SongClass;
+import classes.SongListClass;
 import interfaces.Song;
 
 import javafx.fxml.FXML;
@@ -17,6 +18,10 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.SystemUtils;
+
+/**
+ *  DEN EINZELNEN GUI-ELEMENTEN Updater hinzufügen!
+ */
 
 public class MP3Controller {
     @FXML private Label LblOrdN;
@@ -75,6 +80,18 @@ public class MP3Controller {
         this.LblOrdN.setText(ordner.toString());
 
         /* Logik hinzufügen um MP3-Dateien zu laden und anzuzeigen */
+        SongListClass mp3s = new SongListClass();
+        File[] inhalt = ordner.listFiles();
+
+        for (File datei : inhalt) {
+            if (datei.getName().endsWith(".mp3")) {
+                mp3s.addSong(new SongClass(datei.getPath())); // hier schon Metadaten auslesen + unique ID erstellen (HASH?)
+            }
+        }
+
+        this.model.setMp3dateien(mp3s);
+
+        // View Updaten!
     }
 
     @FXML protected void onBtnShin(ActionEvent event) {
@@ -85,12 +102,34 @@ public class MP3Controller {
         System.out.println("Btn Gedrückt!");
     }
 
-    @FXML protected void onBtnMetaSp(ActionEvent event) {
-        System.out.println("Btn Gedrückt!");
+    @FXML protected void onBtnMetaSp(ActionEvent event) throws RemoteException{
+        String album = this.TxtAlbum.getText();
+        String interp = this.TxtAlbum.getText();
+        String titel = this.TxtTitel.getText();
+
+        ArrayList<Song> pl = this.model.getPlaylist().getList();
+        int index = pl.indexOf(this.aktiverSong);
+        pl.get(index).setTitle(titel);
+        pl.get(index).setAlbum(album);
+        pl.get(index).setInterpret(interp);
     }
 
-    @FXML protected void onBtnSletzt(ActionEvent event) {
-        System.out.println("Btn Gedrückt!");
+    @FXML protected void onBtnSletzt(ActionEvent event) throws RemoteException{
+        // alles null testen, abfangen!
+        ArrayList<Song> pl = this.model.getPlaylist().getList();
+        int index = pl.indexOf(this.aktiverSong);
+        if (index >= pl.size()-1) {
+            this.aktiverSong = (SongClass) pl.get(pl.indexOf(this.aktiverSong)-1);
+            this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
+            this.player.play();
+        } else {
+            // Entweder auf letzten Song springen und spielen -> 1/2 oder aufhören
+            // 1. Auf ersten Song setzen
+            this.aktiverSong = (SongClass) pl.get(pl.size());
+            // 2. dann weiterspielen
+            this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
+            this.player.play();
+        }
     }
 
     @FXML protected void onBtnSstart(ActionEvent event) throws RemoteException {
@@ -119,8 +158,8 @@ public class MP3Controller {
             this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
             this.player.play();
         } else {
-            // Am Ende entweder aufhören oder von Vorne beginnen ?
-            // 1. Auf ersten Song setzen (und aufhören)
+            // Am Ende entweder aufhören oder von Vorne beginnen -> 1/2 ?
+            // 1. Auf ersten Song setzen
             this.aktiverSong = (SongClass) pl.get(0);
             // 2. dann weiterspielen
             this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));

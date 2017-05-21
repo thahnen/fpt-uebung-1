@@ -17,10 +17,11 @@ public class SongListClass implements SongList {
         this.elem = new ArrayList<Song>();
     }
 
-    public SongListClass(ArrayList<Song> nelem) {
+    public SongListClass(ArrayList<Song> nelem) throws Exception{
         this.elem = new ArrayList<Song>();
         if (!this.elem.addAll(nelem)) {
             // Fehlerbehandlung
+            throw new Exception("Fehler in der DV");
         }
     }
 
