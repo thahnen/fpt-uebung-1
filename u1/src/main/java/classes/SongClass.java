@@ -15,7 +15,13 @@ public class SongClass implements Song {
     private String title;
 
 
-    public SongClass() {
+    public SongClass(){
+
+    }
+
+    public SongClass( String path, String title) {
+        this.path = path;
+        this.title = title;
     }
 
     public SongClass(String path, long id, String album, String interpret, String title) {
