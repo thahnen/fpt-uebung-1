@@ -7,22 +7,28 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+<<<<<<< HEAD:u1/src/main/java/classes/SongListC.java
 /**
  * Created by thahnen on 10.05.17.
  */
 public class SongListC implements SongList {     //Ist aber nicht der gleiche Name Klasse und Interface ...
+=======
+
+public class SongListClass implements SongList {
+>>>>>>> origin/Tobias:u1/src/main/java/classes/SongListClass.java
 
     private ArrayList<Song> elem;
 
-    public SongListC() {
 
+    public SongListClass() {
         this.elem = new ArrayList<Song>();
     }
 
-    public SongListC(ArrayList<Song> nelem) {
+    public SongListClass(ArrayList<Song> nelem) throws Exception{
         this.elem = new ArrayList<Song>();
         if (!this.elem.addAll(nelem)) {
             // Fehlerbehandlung
+            throw new Exception("Fehler in der DV");
         }
     }
 
@@ -58,12 +64,12 @@ public class SongListC implements SongList {     //Ist aber nicht der gleiche Na
 
     public Song findSongByPath(String name) throws RemoteException {
         // Platzhalter
-        return new SongClass();
+        return new SongClass("");
     }
 
     @Override
-    public Iterator<Song> iterator() {      // ich raff die Scheisse hier erstmal nicht -.-
-        return null;                   // guck mal bitte einer ob er/ sie das rafft  --ich glaube das ist für die liste der lieder die angezeigt werden sollen -Marco
+    public Iterator<Song> iterator() {
+        return null;
     }
 
 }

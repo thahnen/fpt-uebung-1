@@ -15,7 +15,15 @@ public class SongClass implements Song {
     private String title;
 
 
-    public SongClass() {
+    public SongClass(String path) { this.path = path; }
+
+    public SongClass(String path, long id) { this.path = path; this.id = id; }
+
+    public SongClass(String path, String album, String interpret, String title) {
+        this.path = path;
+        this.album = null;
+        this.interpret = null;
+        this.title = title;
     }
 
     public SongClass(String path, long id, String album, String interpret, String title) {
@@ -24,13 +32,14 @@ public class SongClass implements Song {
         this.album = album;
         this.interpret = interpret;
         this.title = title;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Tobias
     }
 
 
-    public String getAlbum() {
-        return this.album;
-    }
+    public String getAlbum() { return this.album; }
 
     public void setAlbum(String album) {
         this.album = album;
