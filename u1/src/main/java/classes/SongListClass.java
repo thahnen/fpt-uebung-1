@@ -7,15 +7,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-<<<<<<< HEAD:u1/src/main/java/classes/SongListC.java
-/**
- * Created by thahnen on 10.05.17.
- */
-public class SongListC implements SongList {     //Ist aber nicht der gleiche Name Klasse und Interface ...
-=======
 
 public class SongListClass implements SongList {
->>>>>>> origin/Tobias:u1/src/main/java/classes/SongListClass.java
 
     private ArrayList<Song> elem;
 

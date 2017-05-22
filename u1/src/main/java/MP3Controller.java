@@ -1,25 +1,13 @@
-<<<<<<< HEAD
-
-import classes.SongClass;
-=======
 import classes.SongClass;
 import classes.SongListClass;
 import interfaces.Song;
 
->>>>>>> origin/Tobias
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
-import javafx.scene.control.Label;
-import javafx.stage.DirectoryChooser;
-
-import java.io.File;
-import java.util.ArrayList;
-=======
 import javafx.stage.DirectoryChooser;
 
 import javafx.scene.media.Media;
@@ -34,7 +22,6 @@ import org.apache.commons.lang3.SystemUtils;
 /**
  *  DEN EINZELNEN GUI-ELEMENTEN Updater hinzufügen!
  */
->>>>>>> origin/Tobias
 
 public class MP3Controller {
     @FXML private Label LblOrdN;
@@ -74,24 +61,6 @@ public class MP3Controller {
         System.out.println("Btn Gedrückt!");
     }
 
-<<<<<<< HEAD
-    @FXML protected void onBtnOrdW(ActionEvent event) {
-        DirectoryChooser chooser = new DirectoryChooser();
-        chooser.setTitle("Wähle einen Ordner für MP3");
-        chooser.setInitialDirectory(new File(""));
-        File selectedFile = chooser.showDialog(null);
-        File songs = selectedFile;
-        File[] songListAr = songs.listFiles();
-        ArrayList<SongClass> songListe = new ArrayList<SongClass>();
-
-        for (int i=0; i<songListe.length; i++) {
-            if(songListAr[i].getName().endsWith(".mp3")) {
-                SongClass s = new SongClass(songListAr[i].getPath(), songListAr[i].getName());
-                songListe.add(s);
-
-            }
-        }
-=======
     @FXML protected void onBtnOrdW(ActionEvent event) throws Exception {
         DirectoryChooser chooser = new DirectoryChooser();
         File ordner;
@@ -123,7 +92,6 @@ public class MP3Controller {
         this.model.setMp3dateien(mp3s);
 
         // View Updaten!
->>>>>>> origin/Tobias
     }
 
     @FXML protected void onBtnShin(ActionEvent event) {

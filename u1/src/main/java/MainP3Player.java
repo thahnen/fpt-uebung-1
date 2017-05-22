@@ -13,7 +13,6 @@ public class MainP3Player extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("fpt-uebung-1.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 
