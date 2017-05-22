@@ -21,6 +21,7 @@ import org.apache.commons.lang3.SystemUtils;
 
 /**
  *  DEN EINZELNEN GUI-ELEMENTEN Updater hinzufügen!
+ *  UPDATE OnChange, den einezelnen Playlists weitere Event-Handler hinzufügen
  */
 
 public class MP3Controller {
