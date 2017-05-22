@@ -2,6 +2,8 @@ import classes.SongClass;
 import classes.SongListClass;
 import interfaces.Song;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -34,7 +36,7 @@ public class MP3Controller {
     @FXML private TextField TxtInterp;
     @FXML private TextField TxtAlbum;
 
-    @FXML private ListView LstMP3;
+    @FXML private ListView LstMp3;
     @FXML private ListView LstPl;
 
     private MP3Model model;
@@ -42,6 +44,10 @@ public class MP3Controller {
 
     private SongClass aktiverSong;
     private MediaPlayer player;
+
+    /* DEBUG */
+    ObservableList<Song> songlist;
+    /* END DEBUG */
 
     public MP3Controller() {
         this.model = new MP3Model();
@@ -90,6 +96,12 @@ public class MP3Controller {
         }
 
         this.model.setMp3dateien(mp3s);
+
+        // Nicht schön aber selten!
+
+        this.songlist = FXCollections.observableList(this.model.getMp3dateien().getList());
+        if (this.songlist == null) { throw new Exception("SongList ist empty"); }
+        this.LstMp3.setItems(songlist);
 
         // View Updaten!
     }

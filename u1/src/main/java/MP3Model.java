@@ -1,4 +1,5 @@
 import classes.SongListClass;
+import interfaces.Song;
 
 import java.io.File;
 import java.rmi.RemoteException;
@@ -26,8 +27,12 @@ public class MP3Model {
     }
 
     public SongListClass getMp3dateien() { return this.mp3dateien; }
-    public void setMp3dateien(SongListClass dateien) {
+    public void setMp3dateien(SongListClass dateien) throws RemoteException{
         this.mp3dateien = dateien;
+
+        for (int i = 0; i < this.mp3dateien.sizeOfList(); i++) {
+            System.out.println(this.mp3dateien.getList().get(i));
+        }
     }
     public void delMp3dateien() throws RemoteException{
         this.mp3dateien.deleteAllSongs();

@@ -89,6 +89,6 @@ public class SongClass implements Song {
     }
 
     public String toString() {
-        return (this.title + " von " + this.interpret + " aus dem Album " + this.album);
+        return (this.path/* + ", " + this.title + " : " + this.interpret + " : " + this.album*/);
     }
 }
