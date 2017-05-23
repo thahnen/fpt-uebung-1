@@ -51,15 +51,17 @@ public class MP3Model {
      *  => Handler für Knöpfe BtnSstart, BtnSletzt, BtnSnaechs
      */
 
-    private File ordner;
+    private File ordner; // wie gesagt vielleicht auch nur den Pfad (?)
     private SongListClass mp3dateien;
     private SongListClass playlist;
+
 
     public MP3Model() {
         this.ordner = null;
         this.mp3dateien = new SongListClass();
         this.playlist = new SongListClass();
     }
+
 
     public File getOrdner() { return this.ordner; }
     public void setOrdner(File ordner) {

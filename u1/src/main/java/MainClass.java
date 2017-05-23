@@ -10,6 +10,10 @@ public class MainClass extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+        /**
+         * In der FXML-Datei wird der Controller mit angegeben und verwendet
+         *  => keine eigene Initialisierung nötig!
+         */
         Parent root = FXMLLoader.load(getClass().getResource("fpt-uebung-1.fxml"));
 
         Scene scene = new Scene(root);

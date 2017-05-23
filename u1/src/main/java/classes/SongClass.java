@@ -88,7 +88,7 @@ public class SongClass implements Song {
         return (ObservableValue<String>) new Object();
     }
 
-    public String toString() {
+    public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
         return (this.path/* + ", " + this.title + " : " + this.interpret + " : " + this.album*/);
     }
 }
