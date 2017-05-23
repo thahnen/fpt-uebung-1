@@ -26,6 +26,32 @@ import org.apache.commons.lang3.SystemUtils;
  */
 
 public class MP3Controller {
+
+    /**     ==================================
+     *      -*- INHALT DER KLASSE MP3Model -*-
+     *      ==================================
+     *
+     *
+     * Alle FXML-Elemente, die es gibt
+     *  => später alles unnötige rauswerfen
+     *
+     * MP3Mode model, das alle Dateien beinhaltet
+     *  => Aufruf von Methoden zur Änderung der Daten
+     *
+     * MP3View view, überflüssig aber ich lass das erstmal drinnen
+     *  => falls FXML nicht geht und zusätzlich als Hardcode-Möglichkeit
+     *
+     * Alle FXML-Eventhandler, die es gibt (werden benötigt)
+     *  => @FXML protected void onBtnOrdW [warum protected?]
+     *      => Ordner auswählen mit den MP3-Dateien drin
+     *      => Ordner als File ordner oder String ordnerPath im Model speichern
+     *      => LstMp3 und LstPl anpassen und davon abhängige Variablen (alle)
+     *      => View updaten mit den neusten Sachen
+     *  => @FXML protected void onBtnShin [warum protected?]
+     *      => aus Model auswahlMp3Song der LstPl im Model hinzufügen
+     *      => View updaten mit dem neuen Element
+     */
+
     @FXML private Label LblOrdN;
     @FXML private Label LblTitle;
     @FXML private Label LblInterp;
@@ -73,39 +99,43 @@ public class MP3Controller {
 
         if (SystemUtils.IS_OS_MAC) {
             chooser.setInitialDirectory(new File(System.getenv("HOME")));
-        } else {
+        } else if (SystemUtils.IS_OS_WINDOWS) {
             chooser.setInitialDirectory(new File(System.getenv("USERPROFILE")));
         }
-        chooser.setTitle("Ordner wählen");
+        chooser.setTitle("Ordner mit MP3-Dateien wählen");
 
         ordner = chooser.showDialog(((Node) event.getSource()).getScene().getWindow());
-        if (ordner == null) {
+        if (ordner == null) { // z.B. wenn man auf "cancel" drückt
+            // Handeln: Gar nichts tun? Bisher ist das nur Platzhalter!
             throw new Exception("Fehler, keinen Ordner ausgewählt!");
         }
 
         this.LblOrdN.setText(ordner.toString());
 
-        /* Logik hinzufügen um MP3-Dateien zu laden und anzuzeigen */
-        SongListClass mp3s = new SongListClass();
+        SongListClass mp3s_ordner = new SongListClass();
         File[] inhalt = ordner.listFiles();
 
         for (File datei : inhalt) {
             if (datei.getName().endsWith(".mp3")) {
-                mp3s.addSong(new SongClass(datei.getPath())); // hier schon Metadaten auslesen + unique ID erstellen (HASH?)
+                mp3s_ordner.addSong(new SongClass(datei.getPath())); // hier schon Metadaten auslesen + unique ID erstellen (HASH?)
             }
         }
 
-        this.model.setMp3dateien(mp3s);
+        // Gucken ob das weniger Aufwand ist ein Aufruf mit allen oder alle einzeln
+        this.model.setMp3dateien(mp3s_ordner);
 
         // Nicht schön aber selten!
+        // Dabei wird aus den Songs in der MP3-Liste nur der String .toString() benutzt
 
         this.songlist = FXCollections.observableList(this.model.getMp3dateien().getList());
         if (this.songlist == null) { throw new Exception("SongList ist empty"); }
         this.LstMp3.setItems(songlist);
-
-        // View Updaten!
     }
 
+    /**
+     * Funktion onBtnShin (getriggert wenn man auf den Button "Song hinzufügen" clickt)
+     *  => nimmt den per Mausclick ausgewählten Song der Mp3Lst
+     */
     @FXML protected void onBtnShin(ActionEvent event) {
         System.out.println("Btn Gedrückt!");
     }
@@ -177,5 +207,13 @@ public class MP3Controller {
             this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
             this.player.play();
         }
+    }
+
+    @FXML protected void onMp3MsPressed(ActionEvent event) {
+
+    }
+
+    @FXML protected void onPlMsPressed(ActionEvent event) {
+
     }
 }
