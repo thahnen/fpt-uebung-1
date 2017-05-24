@@ -56,7 +56,7 @@ public class MP3Controller {
     private MP3Model model;
     private MP3View view;
 
-    /* DEBUG */
+    /* DEBUG KOMMT WEG */
     ObservableList<Song> songlist;
     /* END DEBUG */
 
