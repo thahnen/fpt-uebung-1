@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 
 import javafx.scene.media.Media;
@@ -56,7 +57,11 @@ public class MP3Controller {
     private MP3Model model;
     private MP3View view;
 
+<<<<<<< HEAD
     /* DEBUG */
+=======
+    /* DEBUG KOMMT WEG */
+>>>>>>> Tobias
     ObservableList<Song> songlist;
     /* END DEBUG */
 
@@ -129,10 +134,17 @@ public class MP3Controller {
 
         // Gucken ob das weniger Aufwand ist ein Aufruf mit allen oder alle einzeln
         this.model.setMp3dateien(mp3s_ordner);
+<<<<<<< HEAD
 
         // Nicht schön aber selten!
         // Dabei wird aus den Songs in der MP3-Liste nur der String .toString() benutzt
 
+=======
+
+        // Nicht schön aber selten!
+        // Dabei wird aus den Songs in der MP3-Liste nur der String .toString() benutzt
+
+>>>>>>> Tobias
         this.songlist = FXCollections.observableList(this.model.getMp3dateien().getList());
         if (this.songlist == null) { throw new Exception("SongList ist empty"); }
         this.LstMp3.setItems(songlist);
@@ -143,15 +155,30 @@ public class MP3Controller {
      *  => fügt den per Mausklick ausgewählten Song aus der Mp3Lst in PlLst hinzu
      */
     @FXML protected void onBtnShin(ActionEvent event) {
-        System.out.println("Btn Gedrückt!");
+        // auf Null testen -> dann nix machen
+        // man muss immer neu draufklicken
+        // testen auf doppelte, die nicht hinzufügen!
+        if (this.model.getAuswahlMp3Song() != null) {
+            this.LstPl.getItems().add(this.model.getAuswahlMp3Song());
+            this.model.setAuswahlMp3Song(null);
+        }
     }
 
     /**
      * Funktion onBtnSloe (getriggert wenn man auf den Button "Song löschen" klickt)
      *  => löscht den per Mausklick ausgewählten Song aus PlLst
      */
+<<<<<<< HEAD
     @FXML protected void onBtnSloe(ActionEvent event) {
         System.out.println("Btn Gedrückt!");
+=======
+    @FXML protected void onBtnSloe(ActionEvent event) throws RemoteException {
+        // auf Null testen
+        // falls es momentanerSong ist umändern auf nächsten, wenn am ende auf den ersten setzen
+        this.model.getPlaylist().deleteSong(this.model.getAuswahlPlSong());
+
+        // View Updaten
+>>>>>>> Tobias
     }
 
     /**
@@ -159,7 +186,11 @@ public class MP3Controller {
      *  => speichert die (geänderten) Metadaten des in der PlLst ausgewählten Songs
      */
     @FXML protected void onBtnMetaSp(ActionEvent event) throws RemoteException{
+<<<<<<< HEAD
         // ÜBERARBEITEN !
+=======
+        // ÜBERARBEITEN ! FUNKTIONIERT NOCH NICHT
+>>>>>>> Tobias
         String album = this.TxtAlbum.getText();
         String interp = this.TxtAlbum.getText();
         String titel = this.TxtTitel.getText();
@@ -281,7 +312,11 @@ public class MP3Controller {
      *      => wenn daneben geklickt/ ListView leer nix machen (?)
      *  !!! Funktion wird nicht aufgerufen wenn man reinklickt !!!
      */
+<<<<<<< HEAD
     @FXML protected void onMp3MsPressed(ActionEvent event) throws RemoteException {
+=======
+    @FXML protected void onMp3MsPressed(MouseEvent event) throws RemoteException {
+>>>>>>> Tobias
         SongClass ausgewaehlter_song =  (SongClass) this.LstMp3.getFocusModel().getFocusedItem();
         this.model.setAuswahlMp3Song(ausgewaehlter_song);
 
@@ -295,6 +330,7 @@ public class MP3Controller {
      *      => wenn daneben geklickt/ ListView leer nix machen (?)
      *  !!! Funktion wird nicht aufgerufen wenn man reinklickt !!!
      */
+<<<<<<< HEAD
     @FXML protected void onPlMsPressed(ActionEvent event) {
         SongClass ausgewaehlter_song =  (SongClass) this.LstPl.getFocusModel().getFocusedItem();
         this.model.setAuswahlPlSong(ausgewaehlter_song);
@@ -307,4 +343,12 @@ public class MP3Controller {
         System.out.println("Alle Songs hinzufügen");
     }
 
+=======
+    @FXML protected void onPlMsPressed(MouseEvent event) {
+        SongClass ausgewaehlter_song =  (SongClass) this.LstPl.getFocusModel().getFocusedItem();
+        this.model.setAuswahlPlSong(ausgewaehlter_song);
+
+        // Metadatenanzeige ändern, wenn man auf einen anderen Song clickt
+    }
+>>>>>>> Tobias
 }

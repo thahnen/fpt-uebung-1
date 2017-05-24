@@ -3,10 +3,40 @@ package classes;
 import interfaces.Song;
 import javafx.beans.value.ObservableValue;
 
-/**
- * Created by thahnen on 10.05.17.
- */
+
 public class SongClass implements Song {
+
+    /**     =====================================
+     *      -*- VARIABLEN DER KLASSE MP3Model -*-
+     *      =====================================
+     *
+     *
+     * String path, speichert den (ganzen) Dateipfad zu der MP3-Date
+     *  => bei File ordner: mögliches Update der SongListClass mp3dateien?
+     *      => Abfrage alle paar mal Eventloop-Durchlauf? Falls möglich.
+     *  => bei String ordnerPath: kein Update der SongListClass mp3dateien
+     *      => nur Speicherung Ordnerpfad für das Label, Update bei Änderung
+     *
+     * long id, speichert ID des Songs
+     *  => generiert durch einen MD5-hash (?), sodass der unique ist
+     *      => Updaten wenn man die Metadaten ändert
+     *  => SPÄTER IMPLEMENTIEREN
+     *
+     * String album, speichert Album-Metadata (erst) in Klasseninstanz
+     *  => wird durch "Metadaten Speichern"-Knopf geändert
+     *      => später in Datei speichern
+     *      => SPÄTER IMPLEMENTIEREN
+     *
+     * String interpret, speichert Interpreten-Metadata (erst) in Klasseninstanz
+     *  => wird durch "Metadaten Speichern"-Knopf geändert
+     *      => später in Datei speichern
+     *      => SPÄTER IMPLEMENTIEREN
+     *
+     * String title, speichert Titel-Metadata (erst) in Klasseninstanz
+     *  => wird durch "Metadaten Speichern"-Knopf geändert
+     *      => später in Datei speichern
+     *      => SPÄTER IMPLEMENTIEREN
+     */
 
     private String path;
     private long id;
@@ -36,7 +66,6 @@ public class SongClass implements Song {
 
 
     public String getAlbum() { return this.album; }
-
     public void setAlbum(String album) {
         this.album = album;
     }
@@ -44,7 +73,6 @@ public class SongClass implements Song {
     public String getInterpret() {
         return this.interpret;
     }
-
     public void setInterpret(String interpret) {
         this.interpret = interpret;
     }
@@ -52,7 +80,6 @@ public class SongClass implements Song {
     public String getPath() {
         return this.path;
     }
-
     public void setPath(String path) {
         this.path = path;
     }
@@ -60,7 +87,6 @@ public class SongClass implements Song {
     public String getTitle() {
         return this.title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -68,11 +94,13 @@ public class SongClass implements Song {
     public long getId() {
         return this.id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * SPÄTER IMPLEMENTIEREN ODER FALLLEN LASSEN
+     */
     public ObservableValue<String> pathProperty() {
         // Platzhalter
         return (ObservableValue<String>) new Object();
@@ -88,7 +116,18 @@ public class SongClass implements Song {
         return (ObservableValue<String>) new Object();
     }
 
+<<<<<<< HEAD
     public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
         return (this.path/* + ", " + this.title + " : " + this.interpret + " : " + this.album*/);
+=======
+    /**
+     * Wird von der ListView aufgerufen
+     */
+    public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
+        // für Unix und für Windows testen
+        //  => / teilt bei Unix, \ bei Windows (?)
+        String[] pfad_teile = this.path.split("/");
+        return (pfad_teile[pfad_teile.length-1]);
+>>>>>>> Tobias
     }
 }
