@@ -307,8 +307,14 @@ public class MP3Controller {
      */
     @FXML protected void onPlMsPressed(MouseEvent event) {
         SongClass ausgewaehlter_song =  (SongClass) this.LstPl.getFocusModel().getFocusedItem();
+        // nach null abfragen
         this.model.setAuswahlPlSong(ausgewaehlter_song);
 
-        // Metadatenanzeige ändern, wenn man auf einen anderen Song clickt
+        // Metadatenanzeige ändern, wenn man auf einen anderen Song klickt
+        // Das Speichern klappt noch nicht, das ist im Oliver2 Branch!
+        this.TxtAlbum.setText(ausgewaehlter_song.getAlbum());
+        this.TxtInterp.setText(ausgewaehlter_song.getInterpret());
+        this.TxtTitel.setText(ausgewaehlter_song.getTitle());
+
     }
 }

@@ -10,6 +10,14 @@ import java.util.Iterator;
 
 public class SongListClass implements SongList {
 
+    /**     =====================================
+     *      -*- VARIABLEN DER KLASSE MP3Model -*-
+     *      =====================================
+     *
+     *
+     * ArrayList<Song> elem, speichert die Songs intern in einem
+     */
+
     private ArrayList<Song> elem;
 
 
