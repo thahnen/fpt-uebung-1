@@ -88,6 +88,7 @@ public class SongClass implements Song {
         return (ObservableValue<String>) new Object();
     }
 
+    // Abändern, denn das nutzt die ListView
     public String toString() {
         return (this.title + " von " + this.interpret + " aus dem Album " + this.album);
     }
