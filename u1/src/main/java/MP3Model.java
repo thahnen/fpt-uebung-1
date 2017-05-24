@@ -1,4 +1,6 @@
+import classes.SongClass;
 import classes.SongListClass;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 import java.rmi.RemoteException;
@@ -23,12 +25,6 @@ public class MP3Model {
      *
      * SongListClass playlist, mit allen MP3-Dateien in der Playlist
      *  => Soll Observable gemacht werden? Für Autoupdate der View?
-     *
-     * Item in ListView LstMp3, auf das geklickt wurde
-     *  => wenn keins, dann null, wenn in LstMp3 getippt wurde update
-     *
-     * Item in ListView LstPl, auf das geklickt wurde
-     *  => wenn keins, dann null, wenn in LstPl getippt wurde update
      *
      * Song(Class) [je nachdem was <ListView>.getSelectionModel().getSelectedItem() zurückgibt] auswahlMp3Song,
      *  das per Mausclick ausgewählte Item in LstMp3 (Handeln wenn Liste wenig Items hat!)
@@ -55,36 +51,75 @@ public class MP3Model {
     private SongListClass mp3dateien;
     private SongListClass playlist;
 
+    private SongClass auswahlMp3Song;
+    private SongClass auswahlPlSong;
+    private SongClass momentanerSong;
+
+    private MediaPlayer player;
+
 
     public MP3Model() {
         this.ordner = null;
         this.mp3dateien = new SongListClass();
         this.playlist = new SongListClass();
+        this.auswahlMp3Song = null;
+        this.auswahlPlSong = null;
+        this.momentanerSong = null;
+        this.player = null;
     }
 
 
+    /**
+     * Funktionen rund um die File ordner
+     */
     public File getOrdner() { return this.ordner; }
     public void setOrdner(File ordner) {
         this.ordner = ordner;
     }
 
+    /**
+     * Funktionen rund um die die SongListClass mp3dateien
+     */
     public SongListClass getMp3dateien() { return this.mp3dateien; }
-    public void setMp3dateien(SongListClass dateien) throws RemoteException{
-        this.mp3dateien = dateien;
+    public void setMp3dateien(SongListClass dateien) throws RemoteException{ this.mp3dateien = dateien; }
+    public void delMp3dateien() throws RemoteException{ this.mp3dateien.deleteAllSongs(); }
 
-        for (int i = 0; i < this.mp3dateien.sizeOfList(); i++) {
-            System.out.println(this.mp3dateien.getList().get(i));
-        }
-    }
-    public void delMp3dateien() throws RemoteException{
-        this.mp3dateien.deleteAllSongs();
-    }
-
+    /**
+     * Funktionen rund um die SongListClass playlist
+     */
     public SongListClass getPlaylist() { return this.playlist; }
     public void setPlaylist(SongListClass playlist) {
         this.playlist = playlist;
     }
-    public void delPlaylist() throws RemoteException {
-        this.playlist.deleteAllSongs();
+    public void delPlaylist() throws RemoteException { this.playlist.deleteAllSongs(); }
+    public void deleteElementFromPlaylist(String path) throws RemoteException {
+        this.playlist.deleteSong(this.playlist.findSongByPath(path));
     }
+    public void addElementToPlaylist(SongClass song) throws RemoteException{
+        this.playlist.addSong(song);
+    }
+
+    /**
+     * Funktionen rund um die SongClass auswahlMp3Song
+     */
+    public SongClass getAuswahlMp3Song() { return this.auswahlMp3Song; }
+    public void setAuswahlMp3Song(SongClass auswahlMp3Song) { this.auswahlMp3Song = auswahlMp3Song; }
+
+    /**
+     * Funktionen rund um die SongClass auswahlPlSong
+     */
+    public SongClass getAuswahlPlSong() { return auswahlPlSong; }
+    public void setAuswahlPlSong(SongClass auswahlPlSong) { this.auswahlPlSong = auswahlPlSong; }
+
+    /**
+     * Funktionen rund um die SongClass momentanerSong
+     */
+    public SongClass getMomentanerSong() { return momentanerSong; }
+    public void setMomentanerSong(SongClass momentanerSong) { this.momentanerSong = momentanerSong;}
+
+    /**
+     * Funktionen rund um den MediaPlayer player
+     */
+    public MediaPlayer getPlayer() { return player; }
+    public void setPlayer(MediaPlayer player) { this.player = player; }
 }
