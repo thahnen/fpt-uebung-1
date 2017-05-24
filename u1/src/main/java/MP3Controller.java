@@ -55,9 +55,6 @@ public class MP3Controller {
     private MP3Model model;
     private MP3View view;
 
-    private SongClass aktiverSong;
-    private MediaPlayer player;
-
     /* DEBUG */
     ObservableList<Song> songlist;
     /* END DEBUG */
@@ -65,7 +62,7 @@ public class MP3Controller {
 
     public MP3Controller() {
         this.model = new MP3Model();
-        this.view = new MP3View();
+        this.view = new MP3View(); // löschen
     }
 
 
@@ -161,13 +158,13 @@ public class MP3Controller {
      *  => speichert die (geänderten) Metadaten des in der PlLst ausgewählten Songs
      */
     @FXML protected void onBtnMetaSp(ActionEvent event) throws RemoteException{
-        // ÜBERSRBEITEN !
+        // ÜBERARBEITEN !
         String album = this.TxtAlbum.getText();
         String interp = this.TxtAlbum.getText();
         String titel = this.TxtTitel.getText();
 
         ArrayList<Song> pl = this.model.getPlaylist().getList();
-        int index = pl.indexOf(this.aktiverSong);
+        int index = pl.indexOf(this.model.getMomentanerSong());
         pl.get(index).setTitle(titel);
         pl.get(index).setAlbum(album);
         pl.get(index).setInterpret(interp);
@@ -182,33 +179,35 @@ public class MP3Controller {
      */
     @FXML protected void onBtnSletzt(ActionEvent event) throws RemoteException{
 
-        if ((this.aktiverSong != null) && (this.model.getPlaylist().sizeOfList() > 0)) {
+        // Prüfen ob der Player null ist!
+
+        if ((this.model.getMomentanerSong() != null) && (this.model.getPlaylist().sizeOfList() > 0)) {
             ArrayList<Song> playlist = this.model.getPlaylist().getList(); // vlt überarbeiten -.-
-            int index = playlist.indexOf(this.aktiverSong);
-            MediaPlayer.Status altersong_status = player.getStatus();
+            int index = playlist.indexOf(this.model.getMomentanerSong());
+            MediaPlayer.Status altersong_status = this.model.getPlayer().getStatus();
 
             if (index > 0) {
-                this.aktiverSong = (SongClass) playlist.get(index-1);
+                this.model.setMomentanerSong((SongClass) playlist.get(index-1));
             } else {
-                this.aktiverSong = (SongClass) playlist.get(playlist.size()-1);
+                this.model.setMomentanerSong((SongClass) playlist.get(playlist.size()-1));
             }
 
-            this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
+            this.model.setPlayer(new MediaPlayer(new Media(this.model.getMomentanerSong().getPath())));
 
             if ((altersong_status == MediaPlayer.Status.PLAYING)
                     || (altersong_status == MediaPlayer.Status.HALTED)) {
-                this.player.play();
+                this.model.getPlayer().play();
             }
 
-        } else if ((this.aktiverSong != null) && (this.model.getPlaylist().sizeOfList() == 0)) {
+        } else if ((this.model.getMomentanerSong() != null) && (this.model.getPlaylist().sizeOfList() == 0)) {
             // das sollte nicht passieren, ist eigentlich gar nicht möglich
             // kann höchstens passieren wenn die Pl gelöscht wird aber noch ein Song spielt (?)
-            this.aktiverSong = null;
-        } else if ((this.aktiverSong == null) && (this.model.getPlaylist().sizeOfList() > 0)) {
+            this.model.setMomentanerSong(null);
+        } else if ((this.model.getMomentanerSong() == null) && (this.model.getPlaylist().sizeOfList() > 0)) {
             // sollte eigentlich nicht passieren aber igel
             // einfach aktiverSong auf den letzten aus der Playlist setzen
             ArrayList<Song> playlist = this.model.getPlaylist().getList();
-            this.aktiverSong = (SongClass) playlist.get(playlist.size()-1);
+            this.model.setMomentanerSong((SongClass) playlist.get(playlist.size()-1));
         }
     }
 
@@ -220,18 +219,19 @@ public class MP3Controller {
      */
     @FXML protected void onBtnSstart(ActionEvent event) throws RemoteException {
         // wie bei den anderen auf die anderen beiden Fälle prüfen!
-        if (this.aktiverSong != null && this.player != null) {
-            MediaPlayer.Status status = this.player.getStatus();
+        if (this.model.getMomentanerSong() != null && this.model.getPlayer() != null) {
+            MediaPlayer.Status status = this.model.getPlayer().getStatus();
             if (status == MediaPlayer.Status.PAUSED) {
-                this.player.play();
+                this.model.getPlayer().play();
             } else if (status == MediaPlayer.Status.PLAYING) {
-                this.player.pause();
+                this.model.getPlayer().pause();
             } else if (status == MediaPlayer.Status.STOPPED) {
                 // nächsten Song in Playlist spielen ausser Playlist hat nur ein Element, dann aufhören
                 ArrayList<Song> pl = this.model.getPlaylist().getList();
-                this.aktiverSong = (SongClass) pl.get(pl.indexOf(this.aktiverSong)+1); //handlen Ende Liste!
+                // handeln vom Ende Liste!
+                this.model.setMomentanerSong((SongClass) pl.get(pl.indexOf(this.model.getMomentanerSong())+1));
 
-                this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
+                this.model.setPlayer(new MediaPlayer(new Media(this.model.getMomentanerSong().getPath())));
             }
         }
     }
@@ -245,32 +245,32 @@ public class MP3Controller {
      */
     @FXML protected void onBtnSnaechs(ActionEvent event) throws RemoteException {
 
-        if ((this.aktiverSong != null) && (this.model.getPlaylist().sizeOfList() > 0)) {
+        if ((this.model.getMomentanerSong() != null) && (this.model.getPlaylist().sizeOfList() > 0)) {
             ArrayList<Song> playlist = this.model.getPlaylist().getList(); // vlt überarbeiten -.-
-            int index = playlist.indexOf(this.aktiverSong);
-            MediaPlayer.Status altersong_status = player.getStatus();
+            int index = playlist.indexOf(this.model.getMomentanerSong());
+            MediaPlayer.Status altersong_status = this.model.getPlayer().getStatus();
 
             if (index <= playlist.size()-1) {
-                this.aktiverSong = (SongClass) playlist.get(index+1);
+                this.model.setMomentanerSong((SongClass) playlist.get(index+1));
             } else {
-                this.aktiverSong = (SongClass) playlist.get(0);
+                this.model.setMomentanerSong((SongClass) playlist.get(0));
             }
 
-            this.player = new MediaPlayer(new Media(this.aktiverSong.getPath()));
+            this.model.setPlayer(new MediaPlayer(new Media(this.model.getMomentanerSong().getPath())));
 
             if ((altersong_status == MediaPlayer.Status.PLAYING)
                     || (altersong_status == MediaPlayer.Status.HALTED)) {
-                this.player.play();
+                this.model.getPlayer().play();
             }
 
-        } else if ((this.aktiverSong != null) && (this.model.getPlaylist().sizeOfList() == 0)) {
+        } else if ((this.model.getMomentanerSong() != null) && (this.model.getPlaylist().sizeOfList() == 0)) {
             // das sollte nicht passieren, ist eigentlich gar nicht möglich
             // kann höchstens passieren wenn die Pl gelöscht wird aber noch ein Song spielt (?)
-            this.aktiverSong = null;
-        } else if ((this.aktiverSong == null) && (this.model.getPlaylist().sizeOfList() > 0)) {
+            this.model.setMomentanerSong(null);
+        } else if ((this.model.getMomentanerSong() == null) && (this.model.getPlaylist().sizeOfList() > 0)) {
             // sollte eigentlich nicht passieren aber igel
             // einfach aktiverSong auf den ersten aus der Playlist setzen
-            this.aktiverSong = (SongClass) this.model.getPlaylist().getList().get(0);
+            this.model.setMomentanerSong((SongClass) this.model.getPlaylist().getList().get(0));
         }
     }
 
@@ -278,17 +278,27 @@ public class MP3Controller {
      * Handler onMp3MsPressed (getriggert, wenn man in die ListView Mp3List klickt)
      *  => setzt ausgewählten Song Mp3 auf den, auf den geklickt wurde
      *      => wenn daneben geklickt/ ListView leer nix machen (?)
+     *  !!! Funktion wird nicht aufgerufen wenn man reinklickt !!!
      */
-    @FXML protected void onMp3MsPressed(ActionEvent event) {
+    @FXML protected void onMp3MsPressed(ActionEvent event) throws RemoteException {
+        SongClass ausgewaehlter_song =  (SongClass) this.LstMp3.getFocusModel().getFocusedItem();
+        this.model.setAuswahlMp3Song(ausgewaehlter_song);
 
+        // DEBUG
+        System.out.println(this.model.getMp3dateien());
     }
 
     /**
      * Handler onPlMsPressed (getriggert, wenn man in die ListView Mp3List klickt)
      *  => setzt ausgewählten Song Pl auf den, auf den geklickt wurde
      *      => wenn daneben geklickt/ ListView leer nix machen (?)
+     *  !!! Funktion wird nicht aufgerufen wenn man reinklickt !!!
      */
     @FXML protected void onPlMsPressed(ActionEvent event) {
+        SongClass ausgewaehlter_song =  (SongClass) this.LstPl.getFocusModel().getFocusedItem();
+        this.model.setAuswahlPlSong(ausgewaehlter_song);
 
+        // DEBUG
+        System.out.println(this.model.getMp3dateien());
     }
 }
