@@ -15,6 +15,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import javafx.scene.input.MouseEvent;
 import java.io.File;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -301,4 +302,9 @@ public class MP3Controller {
         // DEBUG
         System.out.println(this.model.getMp3dateien());
     }
+
+    @FXML protected void onMsEtalladdBtn (MouseEvent event) {
+        System.out.println("Alle Songs hinzufügen");
+    }
+
 }

@@ -7,18 +7,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MP3Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MP3Controller">
    <children>
       <ListView fx:id="LstMp3" layoutX="14.0" layoutY="37.0" maxHeight="300.0" maxWidth="175.0" minHeight="300.0" minWidth="175.0" onMouseClicked="#onMp3MsPressed" prefHeight="300.0" prefWidth="175.0" />
-      <Label fx:id="LblOrdN" layoutX="14.0" layoutY="12.0" maxHeight="25.0" maxWidth="175.0" minHeight="25.0" minWidth="175.0" prefHeight="25.0" prefWidth="175.0" text="&lt; Ordnername &gt;" />
-      <ListView fx:id="LstPl" layoutX="200.0" layoutY="37.0" maxHeight="300.0" maxWidth="175.0" minHeight="300.0" minWidth="175.0" onMouseClicked="#onPlMsPressed" prefHeight="300.0" prefWidth="175.0" />
-      <Button fx:id="BtnPlNeu" layoutX="200.0" layoutY="11.0" maxHeight="25.0" maxWidth="57.0" minHeight="25.0" minWidth="57.0" mnemonicParsing="false" onAction="#onBtnPlNeu" prefHeight="25.0" prefWidth="57.0" text="Neu">
+      <Label fx:id="LblOrdN" layoutX="14.0" layoutY="12.0" maxHeight="25.0" maxWidth="175.0" minHeight="25.0" minWidth="175.0" prefHeight="25.0" prefWidth="175.0" text="&lt; Dateipfad &gt;" textAlignment="CENTER">
          <font>
-            <Font size="10.0" />
-         </font>
-      </Button>
-      <Button fx:id="BtnPlLad" layoutX="259.0" layoutY="11.0" maxHeight="25.0" maxWidth="57.0" minHeight="25.0" minWidth="57.0" mnemonicParsing="false" onAction="#onBtnPlLad" prefHeight="25.0" prefWidth="57.0" text="Laden">
+            <Font size="14.0" />
+         </font></Label>
+      <ListView fx:id="LstPl" layoutX="234.0" layoutY="37.0" maxHeight="300.0" maxWidth="175.0" minHeight="300.0" minWidth="141.0" onMouseClicked="#onPlMsPressed" prefHeight="300.0" prefWidth="141.0" />
+      <Button fx:id="BtnPlNeu" layoutX="200.0" layoutY="11.0" maxHeight="25.0" maxWidth="116.0" minHeight="25.0" minWidth="57.0" mnemonicParsing="false" onAction="#onBtnPlNeu" onMouseEntered="#onMsEtalladdBtn" prefHeight="25.0" prefWidth="116.0" text="Alle Songs hinzufügen">
          <font>
             <Font size="10.0" />
          </font>
@@ -46,10 +43,13 @@
       <Label fx:id="LblTitel" layoutX="399.0" layoutY="65.0" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" text="Titel:" />
       <Label fx:id="LblInterp" layoutX="399.0" layoutY="122.0" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" text="Interpret:" />
       <Label fx:id="LblAlbum" layoutX="399.0" layoutY="180.0" maxHeight="25.0" maxWidth="75.0" minHeight="25.0" minWidth="75.0" prefHeight="25.0" prefWidth="75.0" text="Album:" />
-      <Button fx:id="BtnMetaSp" layoutX="399.0" layoutY="237.0" maxHeight="25.0" maxWidth="142.0" minHeight="25.0" minWidth="142.0" mnemonicParsing="false" onAction="#onBtnMetaSp" prefHeight="25.0" prefWidth="142.0" text="Metadaten speichern" />
-      <Button fx:id="BtnSletzt" layoutX="14.0" layoutY="367.0" maxHeight="25.0" maxWidth="35.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSletzt" prefHeight="25.0" prefWidth="35.0" text="&lt;&lt;" />
-      <Button fx:id="BtnSstart" layoutX="54.0" layoutY="367.0" maxHeight="25.0" maxWidth="35.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSstart" prefHeight="25.0" prefWidth="35.0" text="|&gt;" />
-      <Button fx:id="BtnSnaechs" layoutX="94.0" layoutY="367.0" maxHeight="25.0" maxWidth="35.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSnaechs" prefHeight="25.0" prefWidth="35.0" text="&gt;&gt;" />
-      <Label fx:id="LblZeit" layoutX="159.0" layoutY="367.0" maxHeight="25.0" maxWidth="95.0" minHeight="25.0" minWidth="95.0" prefHeight="25.0" prefWidth="95.0" text="100:12 / 100:12" />
+      <Button fx:id="BtnMetaSp" layoutX="399.0" layoutY="237.0" maxHeight="25.0" maxWidth="170.0" minHeight="25.0" minWidth="142.0" mnemonicParsing="false" onAction="#onBtnMetaSp" prefHeight="25.0" prefWidth="170.0" text="Metadaten speichern" />
+      <Button fx:id="BtnSletzt" layoutX="399.0" layoutY="275.0" maxHeight="34.0" maxWidth="47.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSletzt" prefHeight="34.0" prefWidth="47.0" text="&lt;&lt;" />
+      <Button fx:id="BtnSstart" layoutX="456.0" layoutY="272.0" maxHeight="41.0" maxWidth="57.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSstart" prefHeight="41.0" prefWidth="57.0" text="▶" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="BtnSnaechs" layoutX="524.0" layoutY="275.0" maxHeight="42.0" maxWidth="57.0" minHeight="25.0" minWidth="35.0" mnemonicParsing="false" onAction="#onBtnSnaechs" prefHeight="34.0" prefWidth="47.0" text="&gt;&gt;" />
+      <Label fx:id="LblZeit" layoutX="429.0" layoutY="325.0" maxHeight="25.0" maxWidth="95.0" minHeight="25.0" minWidth="95.0" prefHeight="25.0" prefWidth="95.0" text="Song Zeit" textAlignment="CENTER" />
    </children>
 </Pane>
