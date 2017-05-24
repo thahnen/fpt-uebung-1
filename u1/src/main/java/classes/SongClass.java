@@ -116,10 +116,6 @@ public class SongClass implements Song {
         return (ObservableValue<String>) new Object();
     }
 
-<<<<<<< HEAD
-    public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
-        return (this.path/* + ", " + this.title + " : " + this.interpret + " : " + this.album*/);
-=======
     /**
      * Wird von der ListView aufgerufen
      */
@@ -128,6 +124,5 @@ public class SongClass implements Song {
         //  => / teilt bei Unix, \ bei Windows (?)
         String[] pfad_teile = this.path.split("/");
         return (pfad_teile[pfad_teile.length-1]);
->>>>>>> Tobias
     }
 }
