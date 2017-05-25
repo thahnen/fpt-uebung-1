@@ -2,6 +2,7 @@ package classes;
 
 import interfaces.Song;
 import javafx.beans.value.ObservableValue;
+import org.apache.commons.lang3.SystemUtils;
 
 
 public class SongClass implements Song {
@@ -128,13 +129,16 @@ public class SongClass implements Song {
 
     /**
      * Wird von der ListView aufgerufen
-     *  => bisher wird der letzte Teil des Dateipfads genutzt
+     *  => bisher wird der letzte Teil des Dateipfads genutzt (macOS / UNIX)
      *  => sollte der Dateiname sein
      */
-    public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
-        // für Unix und für Windows testen
-        //  => / teilt bei Unix, \ bei Windows (?)
-        String[] pfad_teile = this.path.split("/");
-        return (pfad_teile[pfad_teile.length-1]);
+    public String toString() {
+        if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_UNIX) {
+            String[] pfad_teile = this.path.split("/");
+            return (pfad_teile[pfad_teile.length-1]);
+        }/* else if (SystemUtils.IS_OS_WINDOWS) {
+            // Hab kein Windows, hier vlt noch Windows handlen ;)
+        }*/
+        return this.path;
     }
 }
