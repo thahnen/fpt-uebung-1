@@ -10,6 +10,14 @@ import java.util.Iterator;
 
 public class SongListClass implements SongList {
 
+    /**     =====================================
+     *      -*- VARIABLEN DER KLASSE MP3Model -*-
+     *      =====================================
+     *
+     *
+     * ArrayList<Song> elem, speichert die Songs intern in einem
+     */
+
     private ArrayList<Song> elem;
 
 
@@ -55,9 +63,16 @@ public class SongListClass implements SongList {
         return elem.size();
     }
 
+    /**
+     * Schaut nach, ob Song im Array ist anhand der Path-Property
+     */
     public Song findSongByPath(String name) throws RemoteException {
-        // Platzhalter
-        return new SongClass("");
+        for ( Song song : this.elem) {
+            if (song.getPath() == name) {
+                return this.elem.get(this.elem.indexOf(song));
+            }
+        }
+        return null;
     }
 
     @Override

@@ -14,7 +14,8 @@ public class MainClass extends Application {
          * In der FXML-Datei wird der Controller mit angegeben und verwendet
          *  => keine eigene Initialisierung nötig!
          */
-        Parent root = FXMLLoader.load(getClass().getResource("fpt-uebung-1.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("fpt-uebung-1-conny.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -22,7 +23,5 @@ public class MainClass extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 }

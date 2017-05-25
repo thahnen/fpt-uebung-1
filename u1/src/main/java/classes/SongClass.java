@@ -2,6 +2,7 @@ package classes;
 
 import interfaces.Song;
 import javafx.beans.value.ObservableValue;
+import org.apache.commons.lang3.SystemUtils;
 
 
 public class SongClass implements Song {
@@ -45,18 +46,28 @@ public class SongClass implements Song {
     private String title;
 
 
-    public SongClass(String path) { this.path = path; }
+    /**
+     * Konstruktoren für SongClass
+     *  => 1. nur Dateipfad mitgeben, den Rest auf null oder äquivalenten Wert setzen (ID generieren ?)
+     *  => 2. nur Dateipfad und ID (wird aus Dateipfad generiert)
+     *      => NOCH NICHT IMPLEMENTIERT
+     *  => 3. alles ausser  ID (wird hier erstmal auf null gesetzt? oder generiert)
+     *      => NOCH NICHT IMPLEMENTIERT
+     *  => 4. alles angegeben (auch ID, wie bei den anderen)
+     *      => NOCH NICHT IMPLEMENTIERT
+     */
+    public SongClass(String path) { this.path = path; } // verändern, alles ander auf null!
 
     public SongClass(String path, long id) { this.path = path; this.id = id; }
 
-    public SongClass(String path, String album, String interpret, String title) {
+    public SongClass(String path, String album, String interpret, String title) { // verändern, alles ander auf null!
         this.path = path;
-        this.album = null;
-        this.interpret = null;
+        this.album = album;
+        this.interpret = interpret;
         this.title = title;
     }
 
-    public SongClass(String path, long id, String album, String interpret, String title) {
+    public SongClass(String path, long id, String album, String interpret, String title) { // verändern, alles ander auf null!
         this.path = path;
         this.id = id;
         this.album = album;
@@ -118,11 +129,16 @@ public class SongClass implements Song {
 
     /**
      * Wird von der ListView aufgerufen
+     *  => bisher wird der letzte Teil des Dateipfads genutzt (macOS / UNIX)
+     *  => sollte der Dateiname sein
      */
-    public String toString() { // => das nutzt die ListView, also: Sinnvolles reinschreiben (?)
-        // für Unix und für Windows testen
-        //  => / teilt bei Unix, \ bei Windows (?)
-        String[] pfad_teile = this.path.split("/");
-        return (pfad_teile[pfad_teile.length-1]);
+    public String toString() {
+        if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_UNIX) {
+            String[] pfad_teile = this.path.split("/");
+            return (pfad_teile[pfad_teile.length-1]);
+        }/* else if (SystemUtils.IS_OS_WINDOWS) {
+            // Hab kein Windows, hier vlt noch Windows handlen ;)
+        }*/
+        return this.path;
     }
 }
