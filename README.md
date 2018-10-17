@@ -1,10 +1,14 @@
 # fpt-uebung-1
-(Privates) Repo zur 1. Übung in FPT
+Nicht mehr privates Repo zur 1. Übung in FPT
 
-## Gruppenmitglieder:
-1. Marko Loesche      3055351
-2. Oliver Heghmanns   3016651
-3. Constanze Becker   2288469
+## Anmerkungen 17.10.2018
+Wurde nie zu Ende geführt, da die Gruppe vorzeitig aufgelöst wurde!
+Veröffentlicht, da ca. 95% des Quelltexts eh von mir war :/
+
+## Gruppenmitglieder (aus Datenschutzgründen wurden die Namen entfernt):
+1. XXXXXXXXXXXXX      XXXXXXX
+2. XXXXXXXXXXXXXXXX   XXXXXXX
+3. XXXXXXXXXXXXXXXX   XXXXXXX
 4. Tobias Hahnen      3049719
 
 ## Disclaimer (von Tobias Hahnen)
